@@ -1,6 +1,6 @@
-version: "3.7"
-services:
-  
+version: "3.9"
+
+services:  
   # Controller node is where ansible will be installed through bootstrap.sh
   # Image will be created with name "anslab/controller"
   # container will be created with name "anscontroller"

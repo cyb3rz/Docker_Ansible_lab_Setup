@@ -2,7 +2,10 @@ FROM ubuntu:latest
 LABEL AUTHOR "karthick"
 
 # Install packages
-RUN apt update && apt install -y vim curl wget python3 python3-pip openssh-server sshpass sudo locate net-tools iputils-ping jq
+RUN apt update \
+    && apt install --no-install-recommends --no-install-suggests -y \
+    nano curl wget python3 python3-pip openssh-server sshpass sudo locate net-tools iputils-ping jq \
+    && rm -rf /var/lib/apt/lists/*
 
 # Create ANSUSER, .ssh directory and set ownsership,permission
 RUN useradd -ms /bin/bash ansuser \

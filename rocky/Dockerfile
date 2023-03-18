@@ -4,7 +4,7 @@ LABEL AUTHOR "Karthick"
 # Install packages
 RUN dnf upgrade --refresh -y \
     && dnf install epel-release -y\
-    && dnf install -y vim curl wget openssh-server jq net-tools iputils python3 python3-pip
+    && dnf install -y vim wget openssh-server jq net-tools iputils python3 python3-pip
 
 # Create ANSUSER, .ssh directory and set ownsership,permission
 RUN adduser -s /bin/sh -G wheel ansuser\
