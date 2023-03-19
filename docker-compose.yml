@@ -10,6 +10,7 @@ services:
       dockerfile: ubuntu/Dockerfile
     image: anslab/controller
     container_name: anscontroller
+    hostname: anscontroller
 #     volumes:
 #       - /home/nixzie/Documents/project:/home/ansuser/project
     networks:
@@ -21,6 +22,7 @@ services:
   ubuntu:
     image: anslab/controller
     container_name: ansubuntu
+    hostname: ansubuntu
     networks:
       - ansible_network
     depends_on:
@@ -34,6 +36,7 @@ services:
       dockerfile: alpine/Dockerfile
     image: anslab/alpine
     container_name: ansalpine
+    hostname: ansalpine
     networks:
       - ansible_network
     pull_policy: build
@@ -45,10 +48,31 @@ services:
       dockerfile: rocky/Dockerfile
     image: anslab/rocky
     container_name: ansrocky
+    hostname: ansrocky
     networks:
       - ansible_network
     pull_policy: build
     
+
+  # ansalpine:
+  #   image: anslab/controller
+  #   container_name: ansalpine
+  #   hostname: ansalpine
+  #   networks:
+  #     - ansible_network
+  #   depends_on:
+  #     - controller
+
+  # ansrocky:
+  #   image: anslab/controller
+  #   container_name: ansrocky
+  #   hostname: ansrocky
+  #   networks:
+  #     - ansible_network
+  #   depends_on:
+  #     - controller
+
+
 networks:
   ansible_network:
     driver: bridge
